@@ -1,5 +1,5 @@
 import { styles } from './styles';
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Image, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Image, ActivityIndicator, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -12,6 +12,7 @@ export default function Login() {
     const [password, setPassword] = useState('')
 
     const handleLogin = async () => {
+        if (email === '' || password === '') return Alert.alert('Preencha todos os campos!')
         await signIn(email, password)
     }
 

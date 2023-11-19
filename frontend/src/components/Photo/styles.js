@@ -5,7 +5,8 @@ export const styles = StyleSheet.create({
         width: 250,
         height: 250,
         borderRadius: 130,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        alignItems: 'center'
     },
     imageSmall: {
         width: 100,

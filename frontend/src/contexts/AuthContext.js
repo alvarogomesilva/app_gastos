@@ -1,6 +1,7 @@
 import api from '../services/api';
 import { createContext, useEffect, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 
 export const AuthContext = createContext({})
 
@@ -46,7 +47,7 @@ export default function AuthProvider({children}) {
 
 
         } catch (error) {
-            console.log(error)
+            Alert.alert('Email/senha incorretos!')
         }
         finally {
             setLoadingAuth(false)

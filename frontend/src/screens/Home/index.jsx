@@ -1,7 +1,8 @@
 import { styles } from './styles';
 import { useContext, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert, TouchableOpacity } from 'react-native';
 import { AuthContext } from '../../contexts/AuthContext';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -13,19 +14,26 @@ import useBalance from '../../hooks/useBalance';
 import useMoviment from '../../hooks/useMoviment';
 import Moviments from '../../components/Moviments';
 import api from '../../services/api';
+import pt from 'date-fns/locale/pt';
+
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 export default function Home() {
 
     const { user } = useContext(AuthContext)
     const [dateNow, setDateNow] = useState(new Date())
+    
+    
+    const [selectedDate, setSelectedDate] = useState(dateNow);
+    const [datePickerVisible, setDatePickerVisible] = useState(false);
+    
     const dateFormated = format(dateNow, 'dd/MM/yyyy')
-
     const { balance } = useBalance(dateFormated, dateNow)
     const { moviments, loading } = useMoviment(dateFormated, dateNow)
 
+    const formattedDate = format(dateNow, 'PPPP', { locale: pt })
 
-
-    const handleDelete = async (id) => {
+    const delteteReceive = async (id) => {
         try {
             await api.delete('/receive', {
                 params: { id_receive: id }
@@ -36,18 +44,40 @@ export default function Home() {
         }
     }
 
+    const handleDelete = async (id) => {
+        Alert.alert('Deseja realmente exluir?', undefined, [
+            {
+                text: 'Sim',
+                onPress: () => delteteReceive(id)
+            },
+            {
+                text: 'Não',
+
+            }
+        ]
+        )
+
+    }
+
+    const showDatePicker = () => setDatePickerVisible(true)
+    const hideDatePicker = () => setDatePickerVisible(false)
+
+    const handleConfirm = (date) => {
+        setDateNow(date)
+        hideDatePicker();
+    };
 
     return (
         <View style={styles.container}>
-            <View style={styles.top}>
+            <LinearGradient style={styles.top} colors={['#009688', '#00897b', '#00796b']}>
 
                 <Photo
                     photo={`http://192.168.0.70:3000/files/${user.photo}`}
                 />
 
                 <Text style={styles.value}>{currencyFormat(balance[0])}</Text>
+            </LinearGradient>
 
-            </View>
             <View style={styles.bottom}>
                 <View style={styles.cards}>
                     <View style={styles.card}>
@@ -76,13 +106,27 @@ export default function Home() {
                 </View>
 
 
-                <View style={styles.calendar}>
+                <TouchableOpacity 
+                    style={styles.calendar} 
+                    onPress={showDatePicker}
+                    activeOpacity={0.7}
+                >
                     <View style={styles.calendarBox}>
                         <Entypo name="calendar" size={25} color="black" />
-                        <Text>Últimas movimentações</Text>
+                        <Text>Movimentações</Text>
                     </View>
-                    <Text>{dateFormated}</Text>
-                </View>
+                    <Text>{formattedDate}</Text>
+                </TouchableOpacity>
+
+                <DateTimePickerModal
+                        date={selectedDate}
+                        isVisible={datePickerVisible}
+                        mode="date"
+                        display="inline"
+                        locale="pt-BR"
+                        onConfirm={handleConfirm}
+                        onCancel={hideDatePicker}
+                />
 
 
                 <Moviments data={moviments} loading={loading} deleteItem={handleDelete} />

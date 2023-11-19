@@ -6,8 +6,6 @@ const RadioButton = ({ type, status, ...rest }) => {
     if (type === 'receita') {
         return (
             <TouchableOpacity style={[styles.buttonReceive, status === 'receita'? { backgroundColor: '#FFF'}: {}]}
-            
-            
                 {...rest}
             >
                 <Feather name="arrow-up" size={24} style={styles.textGreen} />

@@ -1,7 +1,6 @@
 import { Image, TouchableOpacity } from "react-native"
 import { FontAwesome } from '@expo/vector-icons';
 import { styles } from "./styles";
-import { useState } from "react";
 
 const Photo = ({ onPress, image, uri, photo }) => {
     

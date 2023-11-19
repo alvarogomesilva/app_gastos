@@ -16,7 +16,7 @@ export default function Register() {
         if (name === '' || email === '' || password === '') {
             return Alert.alert('Preencha todos os campos!')
         }
-
+        
         await signUp(name, email, password)
         setName('')
         setEmail('')

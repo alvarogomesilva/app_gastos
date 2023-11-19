@@ -9,7 +9,9 @@ export const styles = StyleSheet.create({
         height: 50,
         borderRadius: 10,
         flexDirection: 'row',
-        gap: 10
+        gap: 10,
+        borderWidth: 2,
+        borderColor: '#CCC'
     },
 
     textGreen: {

@@ -31,7 +31,7 @@ export default function AppRoutes() {
                     left: 15,
                     right: 15,
                     borderRadius: 10,
-                    height: 70,
+                    height: 60,
                     backgroundColor: '#FFF',
                     borderTopWidth: 0,
                 }
@@ -46,7 +46,6 @@ export default function AppRoutes() {
                         return (
                             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                 <Entypo name="home" size={size} color={color} />
-                                <Text>Home</Text>
                             </View>
                         )
                     }
@@ -61,7 +60,6 @@ export default function AppRoutes() {
                         return (
                             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                 <AntDesign name="solution1" size={size} color={color} />
-                                <Text>Perfil</Text>
                             </View>
                         )
                     }
@@ -76,7 +74,6 @@ export default function AppRoutes() {
                         return (
                             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                 <MaterialCommunityIcons name="pencil" size={size} color={color} />
-                                <Text>Registrar</Text>
                             </View>
                         )
                     }
@@ -91,7 +88,6 @@ export default function AppRoutes() {
                         return (
                             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                 <FontAwesome name="user-circle" size={size} color={color} />
-                                <Text>Avatar</Text>
                             </View>
                         )
                     }
@@ -107,7 +103,6 @@ export default function AppRoutes() {
                         return (
                             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                 <Entypo name="login" size={size} color={color} />
-                                <Text>Sair</Text>
                             </View>
                         )
                     }

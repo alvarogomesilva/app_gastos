@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, Text, TextInput, View } from "react-native";
+import { Alert, Keyboard, KeyboardAvoidingView, Text, TextInput, View } from "react-native";
 import { styles } from "./styles";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -19,7 +19,10 @@ export default function New() {
     const [loading, setLoading] = useState(false)
 
     const handleRegister = async () => {
+        if (description === '' || value === '') return Alert.alert('Preencha todos os campos!')
+        
         await saveReceive(setLoading, user, description, value, type, date)
+        Keyboard.dismiss()
         setDescription('')
         setValue('')
     }
