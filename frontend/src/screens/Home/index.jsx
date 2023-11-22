@@ -73,6 +73,7 @@ export default function Home() {
 
                 <Photo
                     photo={`http://192.168.0.70:3000/files/${user.photo}`}
+                    user={user}
                 />
 
                 <Text style={styles.value}>{currencyFormat(balance[0])}</Text>
