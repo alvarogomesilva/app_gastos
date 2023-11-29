@@ -19,8 +19,8 @@
 ## 🚀 Tecnologias 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- JavaScript
-- TypeScript
+- JavaScript (Frontend)
+- TypeScript (Backend)
 - React Native
 - MySql
 
