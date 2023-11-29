@@ -4,7 +4,10 @@
 
 <p align="center">
   <img align="center" height="30" width="50" alt="html-icon" src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg">
+  <img align="center" height="30" width="50" alt="html-icon" src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg">
+  
   <img align="center" height="30" width="50" alt="html-icon" src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg">
+  <img align="center" height="30" width="50" alt="html-icon" src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg">
 </p>
 
 <p align="center">
@@ -19,6 +22,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - JavaScript
 - TypeScript
 - React Native
+- MySql
 
 ## 💻 Projeto
   Este projeto foi desenvolvido desde o backend, feito com TypeScript, JWT e Prisma. No frontend foi utilizado o axios para comunicação com a api desenvolvida. Esse projeto contém cadastro de usuário, autenticação e atualização de perfil, tudo controlado pelo usuário, ele permite você registrar um gasto ou uma despesa que você pode consultar pela mais recente e podendo exclui-la. Além disso o usuário pode filtrar por datas para ver o histórico de gastos anteriores.
