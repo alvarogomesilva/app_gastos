@@ -25,6 +25,7 @@ export default function New() {
         Keyboard.dismiss()
         setDescription('')
         setValue('')
+        Alert.alert('Registrado com sucesso!')
     }
 
     return (

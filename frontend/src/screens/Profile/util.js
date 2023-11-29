@@ -14,6 +14,7 @@ const updateUser = async (setLoading, user, name, email, setUser) => {
     try {
         const response = await api.post('/update', { user_id, name, email })
         setUser(response.data)
+        Alert.alert('Atualizado com sucesso!')
     } catch (error) {
         console.log(error)
     }

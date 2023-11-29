@@ -20,6 +20,7 @@ export const saveImage = async (setLoading, user, image, uri, setUser) => {
             headers: { 'Accept': 'application/json', "content-type": 'multipart/form-data' }
         })
         setUser(response.data)
+        Alert.alert('Salvo com sucesso!')
     } catch (error) {
         console.log(error)
     }

@@ -12,8 +12,6 @@ export default function Profile() {
 
     const [name, setName] = useState(user.name)
     const [email, setEmail] = useState(user.email)
-    const [password, setPassword] = useState('')
-    const [newPassword, setNewPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
     const handleUpdateUser = async () => await updateUser(setLoading, user, name, email, setUser)
@@ -37,20 +35,6 @@ export default function Profile() {
                     placeholder="Digite seu email"
                     value={email}
                     onChangeText={(text) => setEmail(text)}
-                />
-                <Input 
-                    name="lock"
-                    placeholder="Digite sua senha"
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
-                    secureTextEntry={true}
-                />
-                <Input 
-                    name="lock"
-                    placeholder="Digite uma nova senha"
-                    value={newPassword}
-                    onChangeText={(text) => setNewPassword(text)}
-                    secureTextEntry={true}
                 />
 
                 <Submit

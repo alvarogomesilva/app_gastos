@@ -1,8 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Platform, Text, View } from 'react-native';
+import { Alert, TouchableOpacity, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Home from '../screens/Home'
@@ -10,10 +9,12 @@ import New from '../screens/New'
 import Profile from '../screens/Profile'
 import Avatar from '../screens/Avatar';
 import Logout from '../screens/Logout';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 export default function AppRoutes() {
-
+    const { signOut } = useContext(AuthContext)
     const Tab = createBottomTabNavigator()
 
     return (
@@ -34,8 +35,9 @@ export default function AppRoutes() {
                     height: 60,
                     backgroundColor: '#FFF',
                     borderTopWidth: 0,
-                }
-                
+                },
+
+
             }}
         >
             <Tab.Screen
@@ -72,14 +74,20 @@ export default function AppRoutes() {
                 options={{
                     tabBarIcon: ({ size, focused, color }) => {
                         return (
-                            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                <MaterialCommunityIcons name="pencil" size={size} color={color} />
+                            <View style={{
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                backgroundColor: '#009688',
+                                borderRadius: '50%',
+                                padding: 5
+                            }}>
+                                <MaterialCommunityIcons name="pencil" size={35} color="#FFF" />
                             </View>
                         )
                     }
                 }}
             />
-            
+
             <Tab.Screen
                 name='Avatar'
                 component={Avatar}
@@ -95,15 +103,25 @@ export default function AppRoutes() {
             />
 
             <Tab.Screen
-
                 name='Logout'
                 component={Logout}
                 options={{
                     tabBarIcon: ({ size, focused, color }) => {
                         return (
-                            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                            <TouchableOpacity 
+                                activeOpacity={0.9}
+                                onPress={() => Alert.alert('Deseja realmente sair?', undefined, [
+                                    {
+                                        text: 'Sim',
+                                        onPress: () => signOut()
+                                    },
+                                    {
+                                        text: 'Não'
+                                    }
+                                ])}
+                                style={{ alignItems: 'center', justifyContent: 'center' }}>
                                 <Entypo name="login" size={size} color={color} />
-                            </View>
+                            </TouchableOpacity>
                         )
                     }
                 }}
