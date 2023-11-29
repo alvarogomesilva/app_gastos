@@ -17,11 +17,11 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - JavaScript
+- TypeScript
 - React Native
 
 ## 💻 Projeto
-  Este projeto foi desenvolvido com base em uma api de receitas. Nesse aplicativo o usuário pode pesquisar por uma receita específica ou por categoria, após a pesquisa ele consegue visualizar de forma descritiva 
-passo a passo de como fazer essa receita.
+  Este projeto foi desenvolvido desde o backend, feito com TypeScript, JWT e Prisma. No frontend foi utilizado o axios para comunicação com a api desenvolvida. Esse projeto contém cadastro de usuário, autenticação e atualização de perfil, tudo controlado pelo usuário, ele permite você registrar um gasto ou uma despesa que você pode consultar pela mais recente e podendo exclui-la. Além disso o usuário pode filtrar por datas para ver o histórico de gastos anteriores.
 
   ## 🖼️ Imagens
 
