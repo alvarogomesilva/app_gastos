@@ -1,5 +1,5 @@
 <h1 align="center">
-  :trophy: App de gastos
+  :trophy: Controle de Gastos pessoais
 </h1>
 
 <p align="center">
@@ -30,5 +30,5 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   ## 🖼️ Imagens
 
 <p align="center">
-  <img src="https://github.com/AlvaroHenriqueSilva/app_gastos/assets/113359747/07c577ab-ebc6-4cf0-b20f-724e7c42975f"/>
+  <img src="https://github.com/user-attachments/assets/163d5fc2-ddfd-4aaf-9b57-ff8d35367b7e"/>
 </p>
